@@ -6,6 +6,7 @@ import ProtectedRoute from "../auth/ProtectedRoute";
 import routes from "./routes";
 import Loading from "../components/common/Loading";
 import Header from "../components/common/Header/Header";
+import Home from "../pages/Home/home";
 
 const Routes = () => {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -24,7 +25,7 @@ const Routes = () => {
         <Switch>
           <ProtectedRoute exact path={routes.codeEditor} component={<div>Code Editor App</div>} />
           <Route exact path={routes.home}>
-            {isAuthenticated ? <Redirect to={routes.codeEditor} /> : <div>Home</div>}
+            {isAuthenticated ? <Redirect to={routes.codeEditor} /> : <Home />}
           </Route>
         </Switch>
       </div>
